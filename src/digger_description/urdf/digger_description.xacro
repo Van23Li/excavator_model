@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<robot name="digger" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="M_PI" value="3.1415926536"/>
+
+  <link name="base_footprint"/>
+  <joint name="joint_0" type="fixed">
+    <origin xyz="0 0 0.0532" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="1.235755685558E-07 1.67085512980947E-05 0.693218460012539" rpy="0 0 0" />
+      <mass value="0.00001" />
+      <inertia ixx="10" ixy="0.0" ixz="0.0" iyy="10" iyz="0.0" izz="10" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://digger_description/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_1">
+    <inertial>
+      <origin xyz="-0.810334449798482 -0.0281797235706804 0.159158888527585" rpy="0 0 0" />
+      <mass value="0.00001" />
+      <inertia ixx="10" ixy="0.0" ixz="0.0" iyy="10" iyz="0.0" izz="10" />
+    </inertial>
+    <visual>>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_1" type="revolute">
+    <origin xyz="0 0 1.902" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3" upper="3" effort="100" velocity="3" />
+  </joint>
+
+  <link name="link_2">
+    <inertial>>
+      <origin xyz="2.47859721455657 0.769775336895938 0.107043225293441" rpy="0 0 0" />
+      <mass value="0.00001" />
+      <inertia ixx="10" ixy="0.0" ixz="0.0" iyy="10" iyz="0.0" izz="10" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2" type="revolute">
+    <origin xyz="0.100000000000001 0 0" rpy="1.5707963267949 0 0" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.03603337" upper="0.79873632" effort="100" velocity="3" />
+  </joint>
+
+  <link name="link_3">
+    <inertial>
+      <origin xyz="1.26681031955835 -0.835106173483516 0.298594184763093" rpy="0 0 0" />
+      <mass value="0.00001" />
+      <inertia ixx="10" ixy="0.0" ixz="0.0" iyy="10" iyz="0.0" izz="10" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_3" type="revolute">
+    <origin xyz="5.69999999999995 0 0" rpy="0 0.0264322179099897 0.0264322179099896" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="0.0264291401525029 0 -0.999650689266406" />
+    <limit lower="0.70447397" upper="2.95519698" effort="100" velocity="3" />
+  </joint>
+
+  <link name="link_4">
+    <inertial>
+      <origin xyz="1.82255765410341 0.223852348098357 0.590227289463811" rpy="0 0 0" />
+      <mass value="0.00001" />
+      <inertia ixx="10" ixy="0.0" ixz="0.0" iyy="10" iyz="0.0" izz="10" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://digger_description/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_4" type="revolute">
+    <origin xyz="2.92397826610424 -0.0773322479303254 0.0773052349460714" rpy="0.000698743414096259 -0.0264229827028247 -0.026441449890071" />
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.56332572" upper="2.41949305" effort="100" velocity="3" />
+  </joint>
+
+  <link name="tool0"/>
+  <joint name="joint_tool0" type="fixed">
+    <origin xyz="1.4698 0 0" rpy="0 0 0" />
+    <parent link="link_4" />
+    <child link="tool0" />
+  </joint>
+
+  <!-- Transmissions for ROS Control -->
+  <xacro:macro name="transmission_block" params="joint_name">
+    <transmission name="tran1">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor1">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+  
+  <xacro:transmission_block joint_name="joint_1"/>
+  <xacro:transmission_block joint_name="joint_2"/>
+  <xacro:transmission_block joint_name="joint_3"/>
+  <xacro:transmission_block joint_name="joint_4"/>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/digger</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+
+</robot>

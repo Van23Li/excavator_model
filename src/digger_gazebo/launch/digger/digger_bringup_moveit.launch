@@ -1,0 +1,17 @@
+<launch>
+  
+   <!-- moveit launch file -->
+    <include file="$(find digger_moveit_config)/launch/moveit_planning_execution.launch" />
+    
+    <!-- Launch Gazebo  -->
+    <include file="$(find digger_gazebo)/launch/digger/digger_gazebo_world.launch" />
+
+    <!-- ros_control arm launch file -->
+    <include file="$(find digger_gazebo)/launch/digger/digger_gazebo_states.launch" />   
+
+    <!-- ros_control trajectory control dof arm launch file -->
+    <include file="$(find digger_gazebo)/launch/digger/digger_trajectory_controller.launch" />
+
+   
+
+</launch>

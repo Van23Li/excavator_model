@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: digger_description
+    relative_path: urdf/digger_description.xacro
+    xacro_args: --inorder
+  SRDF:
+    relative_path: config/digger.srdf
+  CONFIG:
+    author_name: Van
+    author_email: 2178283152@qq.com
+    generated_timestamp: 1616514945
